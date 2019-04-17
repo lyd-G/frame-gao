@@ -28,6 +28,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.frame</groupId>
+			<artifactId>example</artifactId>
+			<!-- 这里一定要加version，引用其他模块时-->
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
