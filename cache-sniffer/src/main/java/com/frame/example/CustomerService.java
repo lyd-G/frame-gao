@@ -1,17 +1,22 @@
 package com.frame.example;
 
+import com.netflix.discovery.DiscoveryClient;
+import com.netflix.discovery.EurekaClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.Resource;
-
 @Service
 public class CustomerService {
 
-//    @Resource(name="restTemplate")
     @Autowired
     RestTemplate restTemplate;
+
+    @Autowired
+    DiscoveryClient discoveryClient;
+
+    EurekaClient eurekaClient;
+
 
     public String hiService(String name) {
         return restTemplate.getForObject("http://SERVICE-DOWNLOAD/hi?name=" + name, String.class);

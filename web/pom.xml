@@ -35,6 +35,8 @@
 			<!-- 这里一定要加version，引用其他模块时-->
 			<version>${project.version}</version>
 		</dependency>
+
+
 	</dependencies>
 
 	<build>
