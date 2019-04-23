@@ -8,10 +8,7 @@
         <module>example</module>
         <module>frame-common</module>
         <module>frame-plugin</module>
-        <module>cache-sniffer</module>
-        <module>cache-download</module>
         <module>cloud-server</module>
-        <module>cache-api</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
