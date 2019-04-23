@@ -9,6 +9,7 @@
         <module>frame-common</module>
         <module>frame-plugin</module>
         <module>cloud-server</module>
+        <module>cache</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
