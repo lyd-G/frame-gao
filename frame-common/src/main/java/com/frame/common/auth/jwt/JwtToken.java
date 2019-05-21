@@ -5,7 +5,7 @@ import lombok.Data;
 import org.apache.shiro.authc.AuthenticationToken;
 
 /**
- * @author liheng
+ * @author
  */
 @Data
 public class JwtToken implements AuthenticationToken {

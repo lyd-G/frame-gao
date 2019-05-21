@@ -24,6 +24,10 @@ import java.util.Set;
 
 /**
  * @author ly
+ * 重写Filter
+
+所有的请求都会先经过Filter，所以我们继承官方的 BasicHttpAuthenticationFilter ，
+并且重写鉴权的方法，另外通过重写preHandle，实现跨越访问。
  */
 @Slf4j
 public class HeaderFilter extends BasicHttpAuthenticationFilter {
@@ -50,7 +54,7 @@ public class HeaderFilter extends BasicHttpAuthenticationFilter {
 
         // 跨域时会首先发送一个option请求，这里我们给option请求直接返回正常状态
         if (httpServletRequest.getMethod().equals(RequestMethod.OPTIONS.name())) {
-            String originHeader = ((HttpServletRequest) request).getHeader("Origin");
+            String originHeader = httpServletRequest.getHeader("Origin");
 
             Set<String> allowedOrigins = new HashSet<String>(Arrays.asList(frameProperties.getConfig().getApiAllowedOrigins()));
             if (allowedOrigins.contains(CorsConfiguration.ALL) || allowedOrigins.contains(originHeader)) {

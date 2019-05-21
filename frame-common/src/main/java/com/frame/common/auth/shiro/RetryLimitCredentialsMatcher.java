@@ -11,7 +11,7 @@ import org.apache.shiro.cache.CacheManager;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author qmgf
+ * @author ly
  */
 public class RetryLimitCredentialsMatcher extends HashedCredentialsMatcher {
 

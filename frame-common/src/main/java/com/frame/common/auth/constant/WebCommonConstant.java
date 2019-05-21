@@ -1,7 +1,3 @@
-/*
- * 
- * 版权所有 北京华融启明风险管理技术股份有限公司 2008-2018
- */
 package com.frame.common.auth.constant;
 
 /**

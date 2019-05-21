@@ -5,8 +5,8 @@ import org.apache.shiro.subject.SubjectContext;
 import org.apache.shiro.web.mgt.DefaultWebSubjectFactory;
 
 /**
- * @author Licoy
- * @version 2018/5/2/14:46
+ * @author
+ * @version
  */
 public class AgileSubjectFactory extends DefaultWebSubjectFactory {
 

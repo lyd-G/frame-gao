@@ -2,8 +2,6 @@ package com.frame.common.base.model;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
@@ -18,25 +16,24 @@ import static org.apache.ibatis.session.RowBounds.NO_ROW_LIMIT;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString
-@ApiModel(value = "列表输入容器")
 public class ParamTable<T> extends Param<T> {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "当前页码", notes = "默认为1")
+    //"当前页码", notes = "默认为1")
     private int current;
 
-    @ApiModelProperty(value = "页码大小", notes = "默认为20")
+    //"页码大小", notes = "默认为20")
     private int size;
 
-    @ApiModelProperty(value = "排序字段", notes = "默认为空")
+    //"排序字段", notes = "默认为空")
     @Setter
     private String orderByField;
 
-    @ApiModelProperty(value = "是否分页", notes = "默认为TRUE")
+    //"是否分页", notes = "默认为TRUE")
     private boolean isPage = true;
 
-    @ApiModelProperty(value = "是否升序", notes = "默认为TRUE")
+    //"是否升序", notes = "默认为TRUE")
     private boolean isAsc;
 
     /**
@@ -46,13 +43,13 @@ public class ParamTable<T> extends Param<T> {
     /**
      * 复杂多个排序条件
      */
-    @ApiModelProperty(value = "分页排序信息", notes = "复杂多个排序条件，多个以','分隔,例如:name.asc,value.desc ")
+    //"分页排序信息", notes = "复杂多个排序条件，多个以','分隔,例如:name.asc,value.desc ")
     protected String sortString;
 
     /**
      * 默认的排序条件
      */
-    @ApiModelProperty(value = "分页排序信息", notes = "复杂多个排序条件，多个以','分隔,例如:name.asc,value.desc ")
+    //"分页排序信息", notes = "复杂多个排序条件，多个以','分隔,例如:name.asc,value.desc ")
     protected String defaultSortString;
 
     /**

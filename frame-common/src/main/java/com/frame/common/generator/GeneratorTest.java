@@ -18,16 +18,19 @@ public class GeneratorTest extends BaseBizGenerator {
      */
     public static void main(String[] args) {
         GeneratorTest generator = new GeneratorTest();
-        String outputDir = "D:\\frame-gao\\frame-common\\frame-common-log\\src\\main\\java";
+        String outputDir = "D:\\frame-gao\\web\\src\\main\\java\\";
         String[] tableArray = new String[]{
-                "TBL_SYS_LOG", "TBL_SYS_LOG_DETAIL"
+                "frame_users",
+                "frame_roles",
+                "frame_permissions",
+                "frame_roles_permissions"
         };
-        String packageDir = "com.frame.common";
-        String xmlDir = "D:\\frame-gao\\frame-common\\frame-common-log\\src\\main\\resources\\mapper\\modules\\frame\\log\\";
+        String packageDir = "com.frame.web";
+        String xmlDir = "D:\\project\\frame-gao\\web\\src\\main\\resources\\mapper\\";
 
         Map customConfig = new HashMap(6);
         customConfig.put("logModel", "FrameModelConstant.SYS");
-        generator.autoGenerator(outputDir, false, tableArray, packageDir, xmlDir, "sys", customConfig);
+        generator.autoGenerator(outputDir, false, tableArray, packageDir, xmlDir, "", customConfig);
 
     }
 }

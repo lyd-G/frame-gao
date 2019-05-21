@@ -18,7 +18,8 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * @author qmgf
+ * @author ly
+ * 用户管理ilter，踢出filter
  */
 @Slf4j
 public class KickOutFilter extends BasicHttpAuthenticationFilter {

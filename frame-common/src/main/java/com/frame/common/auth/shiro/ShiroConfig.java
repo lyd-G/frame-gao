@@ -51,10 +51,13 @@ public class ShiroConfig {
      * 缓存管理器 根据插件自动注入
      */
     @Autowired
-    @Qualifier(value = "shiroCache")
+    @Qualifier("shiroCache")
     private CacheManager shiroCache;
 
-
+    /**
+     * 定义多个realm的认证策略配置,使用FirstSuccessfulStrategy
+     * @return
+     */
     @Bean
     public ModularRealmAuthenticator modularRealmAuthenticator() {
         ModularRealmAuthenticator modularRealmAuthenticator = new ModularRealmAuthenticator();
@@ -72,7 +75,7 @@ public class ShiroConfig {
         securityManager.setAuthenticator(modularRealmAuthenticator());
         Collection<Realm> realms = new ArrayList<>();
         realms.add(jwtRealm());
-        realms.add(passwdRealm());
+        realms.add(shiroRealm());
         securityManager.setCacheManager(shiroCache);
 
         securityManager.setRealms(realms);
@@ -129,14 +132,14 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public PasswdRealm passwdRealm() {
-        PasswdRealm passwdRealm = new PasswdRealm();
-        passwdRealm.setCredentialsMatcher(hashedCredentialsMatcher(passwordHash()));
-        passwdRealm.setAuthorizationCachingEnabled(false);
+    public ShiroRealm shiroRealm() {
+        ShiroRealm shiroRealm = new ShiroRealm();
+        shiroRealm.setCredentialsMatcher(hashedCredentialsMatcher(passwordHash()));
+        shiroRealm.setAuthorizationCachingEnabled(false);
         //启用身份验证缓存，即缓存AuthenticationInfo信息，默认false
-        passwdRealm.setAuthenticationCachingEnabled(false);
+        shiroRealm.setAuthenticationCachingEnabled(false);
 
-        return passwdRealm;
+        return shiroRealm;
     }
 
     @Bean
@@ -191,6 +194,8 @@ public class ShiroConfig {
     @Bean("shiroFilter")
     public ShiroFilterFactoryBean shiroFilter(DefaultWebSecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
+        //配置securityManager
+        shiroFilter.setSecurityManager(securityManager);
 
         // 添加自己的过滤器并且取名为jwt
         Map<String, javax.servlet.Filter> filterMap = new LinkedHashMap<>();
@@ -201,21 +206,11 @@ public class ShiroConfig {
         }
         shiroFilter.setFilters(filterMap);
 
-        shiroFilter.setSecurityManager(securityManager);
         shiroFilter.setLoginUrl("/api/login");
 
         // 自定义url规则
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
 
-        //activiti
-        filterChainDefinitionMap.put("/editor-app/**", "anon");
-        filterChainDefinitionMap.put("/diagram-viewer/**", "anon");
-        filterChainDefinitionMap.put("/process-definition/**", "anon");
-
-
-        filterChainDefinitionMap.put("/model/*", "anon");
-        filterChainDefinitionMap.put("/modeler.html", "anon");
-        filterChainDefinitionMap.put("/editor/stencilset", "anon");
         String[] ignoreUrl = this.frameProperties.getAuth().getIgnoreUrl();
         if (!CollectionUtils.sizeIsEmpty(ignoreUrl)) {
             for (int i = 0; i < ignoreUrl.length; i++) {
@@ -241,6 +236,7 @@ public class ShiroConfig {
         } else {
             filterChainDefinitionMap.put("/api/**", "header,user");
         }
+        filterChainDefinitionMap.put("/test/**", "anon");
 
         shiroFilter.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilter;

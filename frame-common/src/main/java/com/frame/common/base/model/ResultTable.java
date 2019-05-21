@@ -2,8 +2,6 @@ package com.frame.common.base.model;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -13,26 +11,25 @@ import java.util.List;
 
 /**
  * @param <T>
- * @author qmgf
+ * @author ly
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @ToString
-@ApiModel(value = "返回列表对象")
 public class ResultTable<T> extends Result<List<T>> {
     private static final long serialVersionUID = 1L;
 
 
-    @ApiModelProperty(value = "总页数")
+    //"总页数")
     private long pages;
 
-    @ApiModelProperty(value = "总条数")
+    //"总条数")
     private long total;
 
-    @ApiModelProperty(value = "当前页码")
+    //"当前页码")
     private long current;
 
-    @ApiModelProperty(value = "页码大小")
+    //"页码大小")
     private long size;
 
     public ResultTable(Page<T> page) {

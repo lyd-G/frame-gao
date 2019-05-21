@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -48,7 +49,7 @@ public class BaseEntity extends Convert {
      */
 
     @TableField(value = "CREATE_DATE", fill = FieldFill.INSERT)
-    protected Date createDate;
+    protected LocalDateTime createDate;
 
     /**
      * 更新者
@@ -60,7 +61,7 @@ public class BaseEntity extends Convert {
      * 更新日期
      */
     @TableField(value = "UPDATE_DATE", fill = FieldFill.INSERT_UPDATE)
-    protected Date updateDate;
+    protected LocalDateTime updateDate;
 
     public static final String ID = "ID";
 

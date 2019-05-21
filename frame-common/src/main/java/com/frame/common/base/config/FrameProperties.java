@@ -24,16 +24,6 @@ public class FrameProperties {
      */
     private FrameProperties.Auth auth;
 
-    /**
-     * 文件
-     */
-    private FilePath file;
-
-    /**
-     * 线路池配置
-     */
-    private Async async;
-
 
     /**
      * quartz配置
@@ -63,28 +53,6 @@ public class FrameProperties {
         private String rsaPrivateKey = "";
 
         /**
-         * 是否使用桥接的BPM
-         */
-        private boolean bridgeBpmEnable = true;
-
-        /**
-         * 是否使用桥接的现货
-         */
-        private boolean bridgeCtSpotEnable = true;
-        /**
-         * 要额外控制缓存时间的bean 实现 IRedisExpiresService
-         */
-        private String[] redisExpiresBeanNames;
-
-        /**
-         * 要额外控制缓错误类型的bean 实现 IErrorFilterService
-         */
-        private String[] errorFilterBeanNames;
-        /**
-         * cors 的访问来源
-         */
-        private String[] apiAllowedOrigins = {"*"};
-        /**
          * 日志有效期
          */
         private int logValidity = 30;
@@ -103,6 +71,11 @@ public class FrameProperties {
          * 测试平台
          */
         private String testTerminal = FrameKnowledge.FrameTerminalEnum.PC.getValue();
+
+        /**
+         * cors 的访问来源
+         */
+        private String[] apiAllowedOrigins = {"*"};
 
 
     }
@@ -149,42 +122,12 @@ public class FrameProperties {
          */
         private String jwtSecret;
         /**
-         * 默认10小时
+         * 默认60分钟
          */
-        private long jwtExpireTime = 10 * 60 * 60 * 1000L;
+        private long jwtExpireTime = 60 * 60 * 1000L;
 
 
     }
-
-    /**
-     * 文件相关
-     *
-     * @author zhaoqiwei
-     */
-    @Data
-    @NoArgsConstructor
-    public static class FilePath {
-        /**
-         * 正式文件的位置
-         */
-        private String savePath;
-
-        /**
-         * 临时文件的位置
-         */
-        private String tempPath;
-
-        /**
-         * 临时文件保留日数
-         */
-        private Integer tempHoldDays;
-
-        /**
-         * 回收站文件保留日数
-         */
-        private Integer recycleHoldDays;
-    }
-
 
     /**
      * quartz配置
@@ -209,33 +152,5 @@ public class FrameProperties {
         private String[] excludeJobGroup;
     }
 
-    /**
-     * 文件相关
-     *
-     * @author zhaoqiwei
-     */
-    @Data
-    @NoArgsConstructor
-    public static class Async {
-        /**
-         * 线程池的大小
-         */
-        private int corePoolSize = 5;
-        /**
-         * 最大线程数
-         */
-        private int maxPoolSize = 20;
-        /**
-         * 排队队列长度
-         */
-        private int queueCapacity = 100;
-        /**
-         * 线程保活时间（单位秒）
-         */
-        private int keepAliveSeconds = 120;
-        /**
-         * 设置线程池中任务的等待时间，如果超过这个时候还没有销毁就强制销毁，以确保应用最后能够被关闭，而不是阻塞住
-         */
-        private int awaitTerminationSeconds = 60;
-    }
+
 }

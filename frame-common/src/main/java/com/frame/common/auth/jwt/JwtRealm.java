@@ -26,14 +26,11 @@ import static com.frame.common.base.constant.CacheConstant.SHIRO_LOGOUT_TOKEN;
 
 
 /**
- * @author qmgf
+ * @author ly
  */
 @Slf4j
 public class JwtRealm extends AuthorizingRealm {
 
-    /**
-     * 第三方实现权限接口
-     */
     @Autowired
     @Lazy
     private IAuthService authService;
@@ -53,6 +50,7 @@ public class JwtRealm extends AuthorizingRealm {
 
     }
 
+    //判断是否拥有权限的方法
     @Override
     public boolean isPermitted(PrincipalCollection principals, String permission) {
         //@RequiresPermissions是否起作用
@@ -79,7 +77,7 @@ public class JwtRealm extends AuthorizingRealm {
     }
 
     /**
-     * 只有当需要检测用户权限的时候才会调用此方法，例如checkRole,checkPermission之类的
+     * 检测用户权限，此方法调用hasRole,hasPermission
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
@@ -111,7 +109,7 @@ public class JwtRealm extends AuthorizingRealm {
     }
 
     /**
-     * 默认使用此方法进行用户名正确与否验证，错误抛出异常即可。
+     * 用户验证。
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken auth) {

@@ -26,7 +26,7 @@ public enum FrameRedisEnum {
     LOGOUT_TOKEN(CacheConstant.SHIRO_LOGOUT_TOKEN, 2 * 60 * 60),
 
     /**
-     * PasswdRealm.authorization 授权缓存2 * 60 * 60
+     * ShiroRealm.authorization 授权缓存2 * 60 * 60
      */
     PASSWD_REALM_AUTHORIZATION(CacheConstant.SHIRO_PASS_REALM_AUTHORIZATION, 60),
 

@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author qmgf
+ * @author ly
  */
 @Slf4j
 public class DataDictValidator implements ConstraintValidator<GaoDataDict, String> {

@@ -1,7 +1,3 @@
-/*
- * 
- * 版权所有 北京华融启明风险管理技术股份有限公司 2008-2018
- */
 package com.frame.common.base.constant;
 
 /**
@@ -44,9 +40,9 @@ public class CacheConstant {
     public static final String SHIRO_LOGOUT_TOKEN = "logoutToken";
 
     /**
-     * PasswdRealm.authorization 授权缓存2 * 60 * 60
+     * ShiroRealm.authorization 授权缓存2 * 60 * 60
      */
-    public static final String SHIRO_PASS_REALM_AUTHORIZATION = "PasswdRealm.authorization";
+    public static final String SHIRO_PASS_REALM_AUTHORIZATION = "ShiroRealm.authorization";
     /**
      * JwtRealm.authorization 授权缓存 2 * 60 * 60
      */

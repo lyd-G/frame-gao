@@ -10,6 +10,7 @@ import com.frame.common.base.config.FrameProperties;
 import com.frame.common.base.knowledge.FrameKnowledge;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -34,14 +35,14 @@ public class JwtUtil {
      */
     private static final String BEARER = "bearer";
     /**
-     * 过期时间10小时
+     * 过期时间12小时
      */
-    private static final long EXPIRE_TIME_TEN_HOURS = 10 * 60 * 60 * 1000L;
+    private static final long EXPIRE_TIME_TEN_HOURS = 12 * 60 * 60 * 1000L;
 
     /**
-     * 过期时间120分钟
+     * 过期时间60分钟
      */
-    private static final long EXPIRE_TIME_ONE_DAY = 24 * 60 * 60 * 1000L;
+    private static final long EXPIRE_TIME_ONE_DAY =  60 * 60 * 1000L;
     /**
      * salt
      */
@@ -60,7 +61,7 @@ public class JwtUtil {
      */
     public static String getJwtToken(String token) {
         log.debug("authenticate jwt token:[{}]", token);
-        if (org.apache.commons.lang3.StringUtils.isBlank(token)) {
+        if (StringUtils.isBlank(token)) {
             return token;
         }
         String headStr = token.substring(0, 6).toLowerCase();
@@ -98,7 +99,7 @@ public class JwtUtil {
 
 
     /**
-     * 生成访问签名,120min后过期
+     * 生成访问签名,60min后过期
      *
      * @param account  用户名
      * @param terminal 终端
@@ -110,7 +111,7 @@ public class JwtUtil {
     }
 
     /**
-     * 生成访问签名,120min后过期
+     * 生成访问签名
      *
      * @param account  用户名
      * @param terminal 终端
@@ -122,19 +123,7 @@ public class JwtUtil {
     }
 
     /**
-     * 生成访问签名,120min后过期
-     *
-     * @param account  用户名
-     * @param terminal 终端
-     * @return 加密的token
-     */
-    public static String getTestAccessToken(String account, String terminal) {
-        String jwtId = UUID.randomUUID().toString().replace("-", "");
-        return sign(account, "", jwtId, FrameKnowledge.FrameTerminalEnum.get(terminal), EXPIRE_TIME_ONE_DAY);
-    }
-
-    /**
-     * 生成刷新签名,24小时后过期
+     * 生成刷新签名
      *
      * @param account  用户名
      * @param terminal 终端
@@ -142,7 +131,7 @@ public class JwtUtil {
      */
     public static String getRefreshToken(String account, String terminal) {
         String jwtId = UUID.randomUUID().toString().replace("-", "");
-        return sign(account, "", jwtId, FrameKnowledge.FrameTerminalEnum.get(terminal), EXPIRE_TIME_ONE_DAY);
+        return sign(account, "", jwtId, FrameKnowledge.FrameTerminalEnum.get(terminal), getJwtExpireTime());
     }
 
     /**
@@ -185,7 +174,7 @@ public class JwtUtil {
     }
 
     /**
-     * 获得jwtToken中包含的用户名
+     * 获得jwtToken中包含的用户
      *
      * @param jwtToken jwt token
      * @return
@@ -306,12 +295,12 @@ public class JwtUtil {
      * 取得配置文件中设置的超时时间
      */
     public static long getJwtExpireTime() {
-        long expireTime = EXPIRE_TIME_TEN_HOURS;
+        long expireTime = EXPIRE_TIME_ONE_DAY;
         try {
             expireTime = ApplicationContextComponent.getBeanByType(FrameProperties.class).getAuth().getJwtExpireTime();
 
         } catch (Exception e) {
-            log.error("取得配置文件中设置的超时时间,如没有设置，则了默认:", e);
+            log.error("Token过期时间为60分钟", e);
         }
 
         return expireTime;

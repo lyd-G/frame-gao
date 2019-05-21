@@ -8,7 +8,7 @@ import java.util.Locale;
  * @author huanglianming
  * @version V1.0
  * @Title: ErrorMsgKnowledge
- * @Package com.demo.common.knowledge
+ * @Package com.web.common.knowledge
  * @Description: 接口返回错误信息集体，所有错误根据各工程进行分类，每个错误都要有类别前缀标识，错误信息标识为6位
  * @date 2017/3/22 10:53
  */

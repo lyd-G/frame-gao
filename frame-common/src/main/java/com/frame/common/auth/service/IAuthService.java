@@ -12,7 +12,7 @@ import java.util.Set;
  * 服务类
  * </p>
  *
- * @author qmgf
+ * @author ly
  * @since 2018-04-10
  */
 public interface IAuthService {

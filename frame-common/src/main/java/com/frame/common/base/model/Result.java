@@ -3,8 +3,6 @@ package com.frame.common.base.model;
 import com.frame.common.base.exception.BaseErrorException;
 import com.frame.common.base.knowledge.IMessageEnum;
 import com.frame.common.base.util.LocaleMessageSourceUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,31 +12,30 @@ import java.text.MessageFormat;
  * API通过返回数据集体一
  *
  * @param <T> the type parameter
- * @author qmgf
+ * @author ly
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @ToString
 @Builder
-@ApiModel(value = "基础返回容器")
 public class Result<T> extends BaseDto {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "返回状态", notes = "为false时，请查看msgId以及msgText信息")
+    //"返回状态", notes = "为false时，请查看msgId以及msgText信息")
     @Setter(AccessLevel.PRIVATE)
     private boolean status;
 
-    @ApiModelProperty(value = "返回状态码", notes = "只有status为false才会有信息")
+    //"返回状态码", notes = "只有status为false才会有信息")
     private String msgId;
 
-    @ApiModelProperty(value = "返回状态说明", notes = "只有status为false才会有信息")
+    //"返回状态说明", notes = "只有status为false才会有信息")
     private String msgText;
 
-    @ApiModelProperty(value = "返回实体对象", notes = "只有status为true时才会有信息")
+    //"返回实体对象", notes = "只有status为true时才会有信息")
     private T data;
 
-    @ApiModelProperty(value = "加密后的内容", notes = "只有启动加密后才会有信息")
+    //"加密后的内容", notes = "只有启动加密后才会有信息")
     private String encryptData;
 
     /**

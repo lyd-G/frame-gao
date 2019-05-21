@@ -20,9 +20,9 @@ public class ShiroUser extends BaseDto {
 
     private static final long serialVersionUID = 1L;
     /**
-     * 员工ID
+     * 用户ID
      */
-    private String staffId;
+    private String authId;
     /**
      * jwtID
      */
@@ -39,23 +39,6 @@ public class ShiroUser extends BaseDto {
      * 终端
      */
     private String terminal;
-    /**
-     * 组织结构
-     */
-    private String organId;
-    /**
-     * 组织结构名称
-     */
-    private String organName;
-
-    /**
-     * 部门ID
-     */
-    private String deptId;
-    /**
-     * 部门名称
-     */
-    private String deptName;
 
     /**
      * 模拟account的账户
@@ -68,12 +51,12 @@ public class ShiroUser extends BaseDto {
      *
      * @param account 账户
      * @param name    姓名
-     * @param staffId ID
+     * @param authId ID
      */
-    public ShiroUser(String account, String name, String staffId) {
+    public ShiroUser(String account, String name, String authId) {
         this.account = account;
         this.name = name;
-        this.staffId = staffId;
+        this.authId = authId;
     }
 
 

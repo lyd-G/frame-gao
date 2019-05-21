@@ -12,7 +12,7 @@ import java.util.Arrays;
  * shiro密码盐加密所用
  * 此处为了redis缓存实现序列化
  *
- * @author L.cm
+ * @author L
  */
 public class ShiroByteSource implements ByteSource, Serializable {
     private static final long serialVersionUID = -6814382603612799610L;

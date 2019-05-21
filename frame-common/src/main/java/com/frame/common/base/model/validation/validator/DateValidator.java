@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * 日期验证
  *
- * @author qmgf
+ * @author ly
  */
 public class DateValidator implements ConstraintValidator<GaoDate, String> {
 

@@ -1,6 +1,6 @@
 package com.frame.common.base.util;
 /**
- * @author qmgf
+ * @author ly
  */
 
 import com.frame.common.base.exception.FunctionErrorException;

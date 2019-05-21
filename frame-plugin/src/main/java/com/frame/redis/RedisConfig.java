@@ -22,7 +22,7 @@ import java.time.Duration;
 public class RedisConfig {
 
     @Bean
-    public KeyGenerator keyGenerator() {
+    public KeyGenerator redisKeyGenerator() {
         return new KeyGenerator() {
             @Override
             public Object generate(Object target, Method method, Object... params) {

@@ -1,5 +1,100 @@
 spring:
   profiles:
     active: dev
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      data: classpath:db/data-h2.sql
+      url: jdbc:mysql://192.168.161:3306/frame?useUnicode=true&useSSL=false&characterEncoding=utf8
+      username: root
+      password: admin
 server:
-  port: 80
+  port: 8081
+
+mybatis-plus:
+  # 扫描 mapper.xml
+  mapper-locations: classpath:/mapper/*Mapper.xml
+
+###frame
+frame:
+  config:
+    rsa-private-key: |
+      MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAI+pgPK9J33EF5RSsRb4yuUTQ8+8LROucssoLAS1mvA6i/7QMIXaR662YwXPjATZDR6T6XUlAYyU5yTlItNcnw2u6GndDm5ceqUd9ONHiOSIgDgvzYJPw8zSsppp+FIaJ8p92wr18YhwK+k+AcB9b7fvF7x3IvA9H5rCkU4A7GWBAgMBAAECgYBJhkHFecNtXV+H/K4/iIMmrC5ncfJMAVsk2GF2447xZbViayB6UNWg+B1Dyw3pKUDKpn60AoWBcm+99TtWmy+XJir6Tkj/qgBKc7mtOA1ismR4uO5eS9LroA+Oq2Ogl6xRqW2nz65vl7Kdx/bOrmWguzJ8tqBXC5YHhOpGMgxnFQJBANrYzwiqB/5K/w1alIi5Z1mcuIkrlLHaqxhN3G/3OBKGKy6b6Bt4pgv+j5ZPHwxc5GgEdU8bQCWiw1gRslHwiZ8CQQCoDSDWlJOHdINIncfhzPjiS7YTKFtW54KfSBtxp+ydS/X0fo9ajt8QAzUys/3uHwmHT2welKV9p7JmKD0XlPzfAkEAprbFON92iWSOWZjoUCOVNLHr7irx8m8XKcOeqvjUkV/+I1qHfe3x6G866RFLILrfENJcny+uNT2BvGR2yG8KFwJAfooEJA+UVvbAtDk6fSgecCeaXiqRPIrurIlbQOW1IWxFM2jpAMN7606/DALEPj1Yq25+dzhutINFre62sb8Z+QJBAMyQitoF8rfOqBvl7jv/guTbyKg3t+Z/oiG2oCKdHEZ8pqQP0aHr3yB0e9NwHe1JXsyoKHE/Oy5ZjbKOXMpbv58=
+    #是否加密，默认不加密
+    encrypt-enable: false
+    ##
+    bridge-bpm-enable: false
+    bridge-ct-spot-enable: false
+    #是否启动swagger
+    swagger-enable: false
+    #redis默认超时时间
+    redis-default-dxpiration : 300L
+    redis-expires-bean-names:
+      - funcRedis
+    error-filter-bean-names:
+      - bean1
+    #日志有效期
+    log-validity: 3
+    #测试账户
+    test-account: admin
+    #测试平台/PC/WAP/APP
+    test-terminal: PC
+  ###api cors 规则数组
+    api-allowed-origins:
+      - http://127.0.0.1
+      - http://localhost
+  quartz:
+    #是否启动JOB ，默认不启动
+    enable: true
+    #包含的job group,多个数组 ，优先处理include ，include有值不处理exclude
+    include-job-group:
+      #- hello
+    #排除的job group,多个数组
+    exclude-job-group:
+      # - CTP
+      - hello
+  websocket:
+    url: /ws
+    allowed-origins:
+      - 127.0.0.1:9528
+      - localhost:9528
+      - "*"
+    max-text-message-buffer-size: 8388608
+    max-binary-message-buffer-size: 8388608
+    async-send-timeout: 30000
+    max-session-idle-timeout: 60000
+    ping-pong-time: 30000
+  auth:
+    #超级管理员
+    admin-account: qmadmin
+    #RequiresPermissions  是否起作用
+    requires-Permissions: true
+    #JWT密钥
+    jwt-secret: "fdif[gf43$%gf}[{e"
+    #超时时间毫秒
+    jwt-expire-time: 36000000
+    #密码重试次数
+    password-retry-limit: 5
+      #是否执行kickout
+    kick-out-valid: false
+      #踢出之前登录的或者 之后登录的用户 默认(false)踢出之前登录的用户
+    kick-out-after: false
+      #同一个帐号最大会话数 默认1
+    kick-out-max-session: 1
+      #不要权限控制的URL 数组
+    ignore-url:
+      - /api/plugin/file/pageoffice/**
+      - /api/sys/organ/listOrganByGroupId
+  async :
+     # 线程池的大小
+     core-pool-size: 5
+     #最大线程数
+     max-pool-size: 20
+     #排队队列长度
+     queue-capacity: 100
+     #线程保活时间（单位秒）
+     keep-alive-seconds: 120
+     #设置线程池中任务的等待时间，如果超过这个时候还没有销毁就强制销毁，以确保应用最后能够被关闭，而不是阻塞住
+     await-termination-seconds: 60
+  bridge:
+    ctp:
+      ctpBaseUrl: http://192.168.101.248:8080/frame-api-ctp/api/ctp/

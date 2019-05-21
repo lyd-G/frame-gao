@@ -124,9 +124,9 @@ public class BaseBizGenerator extends VelocityTemplateEngine {
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
 //        dsc.setDriverName("oracle.jdbc.driver.OracleDriver");
-        dsc.setUsername("feame");
-        dsc.setPassword("frame");
-        dsc.setUrl("jdbc:mysql://localhost:3306/frame?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUsername("root");
+        dsc.setPassword("admin");
+        dsc.setUrl("jdbc:mysql://192.168.161:3306/frame?useUnicode=true&useSSL=false&characterEncoding=utf8");
 //        dsc.setUrl("jdbc:oracle:thin:@192.168.101.249:1521/ctrm");
 
         return dsc;
@@ -140,7 +140,7 @@ public class BaseBizGenerator extends VelocityTemplateEngine {
         // 全局大写命名 ORACLE 注意
         ///strategy.setCapitalMode(true);
         // 此处可以修改为您的表前缀
-        strategy.setTablePrefix(new String[]{"ST_", "B2C_", "DEMO_"});
+        strategy.setTablePrefix(new String[]{"frame_", "B2C_", "DEMO_"});
         // 表名生成策略
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityColumnConstant(true);
@@ -153,7 +153,7 @@ public class BaseBizGenerator extends VelocityTemplateEngine {
         // 自定义实体，公共字段
         strategy.setSuperEntityColumns(new String[]{"ID", "CREATE_USER", "CREATE_DATE", "UPDATE_DATE", "UPDATE_USER", "VERSION_NUM", "DELETE_FLAG"});
         // 自定义 mapper 父类
-        /// strategy.setSuperMapperClass("com.baomidou.demo.TestMapper");
+        /// strategy.setSuperMapperClass("com.baomidou.web.TestMapper");
         // 自定义 service 父类
         strategy.setSuperServiceClass("com.frame.common.base.service.IBaseService");
         // 自定义 service 实现类父类
@@ -181,7 +181,7 @@ public class BaseBizGenerator extends VelocityTemplateEngine {
         ///pc.setXml("mapper.xml");
         pc.setServiceImpl("service.impl");
         pc.setService("service");
-        pc.setController("web");
+        pc.setController("controller");
         pc.setModuleName(moduleName);
         return pc;
 

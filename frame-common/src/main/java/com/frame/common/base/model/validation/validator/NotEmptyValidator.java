@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * 非空检查
  *
- * @author qmgf
+ * @author ly
  */
 public class NotEmptyValidator implements ConstraintValidator<GaoNotEmpty, Object> {
 

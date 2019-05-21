@@ -75,7 +75,7 @@ class WsHandshakeInterceptor implements HandshakeInterceptor {
             return false;
         }
 
-        attributes.put(WebsocketConstance.SESSION_USER_ID, shiroUser.getStaffId());
+        attributes.put(WebsocketConstance.SESSION_USER_ID, shiroUser.getAuthId());
         attributes.put(WebsocketConstance.SESSION_URL_PARAM, paramMap);
 
         return true;
