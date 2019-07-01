@@ -22,7 +22,7 @@ import java.util.zip.CRC32;
  * 加密工具类<br>
  * 使用 PBEWithMD5AndDES 算法
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 @Slf4j
 public class CryptUtil {

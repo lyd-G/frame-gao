@@ -15,7 +15,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * 验证值是否为日期格式<br>
  * 可以检查 String
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)

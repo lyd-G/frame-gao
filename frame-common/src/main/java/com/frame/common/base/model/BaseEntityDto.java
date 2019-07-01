@@ -12,7 +12,6 @@ import java.util.Date;
 /**
  * @author ly
  * @version V1.0
- * @Package net.qmgf.frame.common.base.model
  * @Description: 所有根据Entity生成的DTO
  * @date
  */

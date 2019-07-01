@@ -30,7 +30,7 @@ import java.util.Properties;
  * 放在分页拦截器之后注册
  * </p>
  *
- * @author qmgf
+ * @author gaoly
  * @since 2018-05-31
  */
 @Intercepts({@Signature(

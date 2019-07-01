@@ -11,7 +11,7 @@ import java.io.StringWriter;
 /**
  * XML工具类
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 public class XmlUtil {
 

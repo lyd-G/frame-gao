@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * mybatisplus自定义填充公共字段 ,即没有传的字段自动填充
  *
- * @author licheng
+ * @author gaoly
  */
 @Slf4j
 public class SysMetaObjectHandler implements MetaObjectHandler {

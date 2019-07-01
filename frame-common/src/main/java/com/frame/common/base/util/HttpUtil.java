@@ -19,7 +19,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * HTTP相关的工具类
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 public class HttpUtil {
 

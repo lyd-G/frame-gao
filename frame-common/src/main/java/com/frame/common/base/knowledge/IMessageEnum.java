@@ -3,7 +3,7 @@ package com.frame.common.base.knowledge;
 /**
  * 消息用枚举的接口
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 public interface IMessageEnum {
 

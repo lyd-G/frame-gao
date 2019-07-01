@@ -27,7 +27,7 @@ public class ConvertUtil {
     /**
      * 检查类型
      *
-     * @author zhaoqiwei
+     * @author gaoly
      */
     private enum CHECK_TYPE {
         /**

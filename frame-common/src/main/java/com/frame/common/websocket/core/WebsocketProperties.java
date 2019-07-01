@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * 从配置文件注入的参数
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 @Component
 @ConfigurationProperties(prefix = "frame.websocket", ignoreUnknownFields = false)

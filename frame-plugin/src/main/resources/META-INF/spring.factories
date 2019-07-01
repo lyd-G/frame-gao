@@ -1,3 +1,0 @@
-#RedisConfig
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.frame.redis.RedisConfig

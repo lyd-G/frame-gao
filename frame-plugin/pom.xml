@@ -22,5 +22,16 @@
             <artifactId>jedis</artifactId>
             <version>${jedis.version}</version>
         </dependency>
+        <dependency> <!--quartz依赖-->
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>${quartz.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.frame</groupId>
+            <artifactId>frame-common</artifactId>
+            <!-- 这里一定要加version，引用其他模块时-->
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

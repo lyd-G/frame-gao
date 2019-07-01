@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * WebSocket Session
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 public interface IWebSocketSession {
 

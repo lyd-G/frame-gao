@@ -3,7 +3,7 @@ package com.frame.common.websocket;
 /**
  * 如果需要通过WebSocket接收来自网页的消息，需要继承这个接口
  *
- * @author zhaoqiwei
+ * @author gaoly
  * @see IWebSocketService#addListener
  */
 @FunctionalInterface

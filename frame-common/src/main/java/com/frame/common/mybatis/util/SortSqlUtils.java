@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  * SqlUtils工具类
  * </p>
  *
- * @author qmgf
+ * @author gaoly
  */
 public class SortSqlUtils {
 

@@ -16,7 +16,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * 自动码表验证,验证值是否为自动码表中的候选值<br>
  * 可以检查 String
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)
