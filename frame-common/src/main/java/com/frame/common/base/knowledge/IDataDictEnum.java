@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * 字典码表常量的共通接口
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 public interface IDataDictEnum {
 

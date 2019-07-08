@@ -13,7 +13,7 @@ import org.springframework.web.socket.server.standard.ServletServerContainerFact
 /**
  * WebSocket配置
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 @Configuration
 @EnableWebSocket

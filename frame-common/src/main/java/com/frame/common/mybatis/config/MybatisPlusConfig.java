@@ -1,8 +1,7 @@
 package com.frame.common.mybatis.config;
 /**
- * @Package net.qmgf.frame.common.biz.plus
  * @Description: 权限数据源
- * @author licheng
+ * @author gaoly
  * @date 2017/5/8 15:52
  * @version V1.0
  */

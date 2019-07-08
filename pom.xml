@@ -43,6 +43,7 @@
         <jsqlparser.version>2.0</jsqlparser.version>
         <mybatis.generator.version>3.0.4</mybatis.generator.version>
         <velocity-engine-core.version>2.0</velocity-engine-core.version>
+        <quartz.version>2.2.3</quartz.version>
     </properties>
 
     <dependencies>

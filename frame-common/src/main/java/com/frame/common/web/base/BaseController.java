@@ -16,7 +16,7 @@ import java.util.Date;
 /**
  * 基础 web
  *
- * @author licheng
+ * @author gaoly
  * @date 2017/05/16 14:51
  */
 public abstract class BaseController {

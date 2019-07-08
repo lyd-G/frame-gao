@@ -7,7 +7,7 @@ import org.apache.ibatis.mapping.MappedStatement;
 import java.lang.reflect.Method;
 
 /**
- * @author qmgf
+ * @author gaoly
  */
 @Slf4j
 public class DataAuthUtils {

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * WebSocket服务类
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 public interface IWebSocketService {
     /**

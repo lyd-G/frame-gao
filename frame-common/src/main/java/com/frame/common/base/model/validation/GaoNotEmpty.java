@@ -15,7 +15,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * 非空检查<br>
  * 可以检查 String,Object,List,Set,Map,数组等
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)

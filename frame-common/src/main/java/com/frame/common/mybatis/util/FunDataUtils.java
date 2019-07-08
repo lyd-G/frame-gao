@@ -3,7 +3,7 @@ package com.frame.common.mybatis.util;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author qmgf
+ * @author gaoly
  */
 @Slf4j
 public class FunDataUtils {

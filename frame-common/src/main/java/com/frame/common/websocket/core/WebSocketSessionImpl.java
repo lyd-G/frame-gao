@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * WebSocket模块对外开放的类
  *
- * @author zhaoqiwei
+ * @author gaoly
  */
 @Slf4j
 public class WebSocketSessionImpl implements IWebSocketSession {
